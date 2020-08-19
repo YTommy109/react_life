@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import {useRecoilValue} from 'recoil'
-import lifeState from '../atoms/life'
 
 const Table = styled.table`
   border-collapse:    collapse;
@@ -20,18 +18,24 @@ const Row = ({data, ...props}) =>
     )}
   </tr>
 
-const Board = ({...props}) => {
-  const life = useRecoilValue(lifeState)
-
-  return (
+const Board = ({state, ...props}) =>
+  <figure>
+    <figcaption>
+        <input
+          type    = "button"
+          value   = "次"
+          onClick = {props.handleForward}
+        />
+    </figcaption>
+    <br />
     <Table>
       <tbody>
-        {life.map(it =>
+        {state.map(it =>
           <Row data = {it} />
         )}
       </tbody>
     </Table>
-  )
-}
+  </figure>
+
 
 export default Board

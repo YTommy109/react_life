@@ -1,7 +1,7 @@
 import React from 'react'
 import { RecoilRoot } from 'recoil'
 import styled from 'styled-components'
-import Board from './components/board'
+import LifeContainer from './containers/life'
 
 const Main = styled.div`
   display:          grid;
@@ -13,7 +13,7 @@ const App = () =>
     <h1>コンウェイのライフゲーム</h1>
     <Main>
       <RecoilRoot>
-        <Board />
+        <LifeContainer />
       </RecoilRoot>
     </Main>
   </React.Fragment>
