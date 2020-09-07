@@ -14,8 +14,8 @@ const Cell = ({state, ...props}) =>
 
 const Row = ({data, ...props}) =>
   <tr>
-    {data.map(it =>
-      <Cell state={it} />
+    {data.map((it, idx) =>
+      <Cell key={idx} state={it} />
     )}
   </tr>
 
@@ -34,8 +34,8 @@ const Board = ({state, ...props}) =>
       <div style={{backgroundColor: 'lightgray'}}>
         <Table>
           <tbody>
-            {state.map(it =>
-              <Row data = {it} />
+            {state.map((it, idx) =>
+              <Row key={idx} data={it} />
             )}
           </tbody>
         </Table>
