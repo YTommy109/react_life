@@ -8,6 +8,9 @@ const blinker = [[
   [0, 1, 0]
 ]]
 
+/**
+ * ライフゲームのルールエンジン
+ */
 const engine = {
   blinker: blinker,
   forward: current => {

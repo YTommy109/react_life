@@ -19,12 +19,20 @@ const Row = ({data, ...props}) =>
     )}
   </tr>
 
-const Board = ({state, ...props}) =>
+const Board = ({state, size, ...props}) =>
   <div style={{width: '92vw'}}>
     <h1>コンウェイのライフゲーム</h1>
 
-    <Kannon left="100px">
+    <Kannon left="200px">
       <div style={{backgroundColor: 'floralwhite'}}>
+        <label htmlFor="size01">サイズ</label>
+        <input
+          id        = "size01"
+          type      = "number"
+          value     = {size}
+          onChange  = {props.handleSize}
+        />
+        <br />
         <input
               type    = "button"
               value   = "次"

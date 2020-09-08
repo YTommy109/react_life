@@ -1,5 +1,5 @@
 import React from 'react'
-import {render, screen } from '@testing-library/react'
+import {render, fireEvent, screen } from '@testing-library/react'
 import Board from './board'
 
 describe('Board について', () => {
@@ -12,7 +12,11 @@ describe('Board について', () => {
       expect(target).toBeInTheDocument()
     })
     it('次ボタンがあること', () => {
-      const target = screen.getByText('次') 
+      const target = screen.getByDisplayValue('次') 
+      expect(target).toBeInTheDocument()
+    })
+    it('サイズ入力があること', () => {
+      const target = screen.getByLabelText('サイズ') 
       expect(target).toBeInTheDocument()
     })
   })
@@ -28,6 +32,29 @@ describe('Board について', () => {
     it('死亡数が 1 であること', () => {
       const target = screen.getAllByText('・') 
       expect(target).toHaveLength(1)
+    })
+  })
+
+  describe('イベントハンドラーが呼ばれること', () => {
+    const mockSize = jest.fn()
+    const mockNext = jest.fn()
+    beforeEach(() => {
+      render(<Board state={[]}
+        handleSize    = {mockSize}
+        handleForward = {mockNext}
+      />)
+    })
+    it('次ボタンのハンドラーが呼ばれること', () => {
+      const target = screen.getByDisplayValue('次')
+      fireEvent.click(target)
+      expect(mockNext).toBeCalledTimes(1)
+    })
+    it('サイズ変更ハンドラーが呼ばれること', () => {
+      const target = screen.getByLabelText('サイズ')
+      expect(target).toHaveValue(null)
+      fireEvent.change(target, {target: {value: '100'}})
+      expect(mockSize).toBeCalledTimes(1)
+      expect(target).toHaveValue(100)
     })
   })
 })
