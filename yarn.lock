@@ -8821,6 +8821,11 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
+recoil-logger@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/recoil-logger/-/recoil-logger-1.1.1.tgz#21a9d372f6f30a7dd626f8d91e5cc164b3fded67"
+  integrity sha512-JUiIQmcwsjN6hBKc8GHvTtqa3L9ram+z48haXAkIalkjftvjag4B9Ry5l8MgH9Q+HZ9TONqnJgvWKMawdqQrsA==
+
 recoil@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.10.tgz#679ab22306f559f8a63c46fd5ff5241539f9248f"
