@@ -24,7 +24,7 @@ const Board = ({state, size, ...props}) =>
     <h1>コンウェイのライフゲーム</h1>
 
     <Kannon left="200px">
-      <div style={{backgroundColor: 'floralwhite'}}>
+      <div style={{backgroundColor: 'floralwhite', padding: '1rem', borderRadius: '12px'}}>
         <label htmlFor="size01">サイズ</label>
         <input
           id        = "size01"
@@ -39,7 +39,7 @@ const Board = ({state, size, ...props}) =>
               onClick = {props.handleForward}
             />
       </div>
-      <div style={{backgroundColor: 'lightgray'}}>
+      <div style={{backgroundColor: 'lightgray', padding: '1rem', borderRadius: '12px'}}>
         <Table>
           <tbody>
             {state.map((it, idx) =>
