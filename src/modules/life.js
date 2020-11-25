@@ -4,7 +4,7 @@ export const life = {
   sumHash: objs => {
     return objs.reduce((acm, it) => {
       Object.entries(it).forEach(([k,v])=>{
-        acm[k] = (acm[k] || 0) + v
+        acm[k] = (acm[k] || 0) + 1
       })
       return acm
     }, {})
@@ -20,7 +20,7 @@ export const life = {
     const _notice= (x, y) => {
       return life.neighbor(x, y)
         .reduce((acm, it) => {
-          acm[it] = 1
+          acm[it] = 'a'
           return acm
       }, {})
     }
