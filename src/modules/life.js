@@ -3,8 +3,8 @@ export const life = {
   size: 0,
   sumHash: objs => {
     return objs.reduce((acm, it) => {
-      const neighbor = Object.keys(it)
-      neighbor.forEach(pos => {
+      // const neighbor = Object.keys(it)
+      it.forEach(pos => {
         acm[pos] = (acm[pos] || 0) + 1
       })
       return acm
@@ -20,10 +20,10 @@ export const life = {
   noticeAll: lifes => {
     const _notice= (x, y) => {
       return life.neighbor(x, y)
-        .reduce((acm, it) => {
-          acm[it] = 'a'
-          return acm
-      }, {})
+      //   .reduce((acm, it) => {
+      //     acm[it] = 'a'
+      //     return acm
+      // }, {})
     }
     return life.sumHash(lifes.map(([x, y]) => _notice(x, y)))
   },
