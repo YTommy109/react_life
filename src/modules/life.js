@@ -3,7 +3,7 @@ export const life = {
   size: 0,
   sumHash: objs => {
     return objs.reduce((acm, it) => {
-      Object.entries(it).forEach(([k,v])=>{
+      Object.keys(it).forEach(k => {
         acm[k] = (acm[k] || 0) + 1
       })
       return acm
