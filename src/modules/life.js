@@ -16,8 +16,8 @@ export const life = {
       [x-1,y+1],[x,y+1],[x+1,y+1]
     ]
   },
-  notice: pos => {
-    return life.neighbor(pos[0],pos[1])
+  notice: ([x, y]) => {
+    return life.neighbor(x, y)
       .reduce((acm, it) => {
         acm[it] = 1
         return acm
