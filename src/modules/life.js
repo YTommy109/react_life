@@ -16,7 +16,7 @@ export const life = {
       [x-1,y+1],[x,y+1],[x+1,y+1]
     ]
   },
-  notice: ([x, y]) => {
+  _notice: ([x, y]) => {
     return life.neighbor(x, y)
       .reduce((acm, it) => {
         acm[it] = 1
@@ -24,7 +24,7 @@ export const life = {
     }, {})
   },
   noticeAll: lifes => {
-    return life.sumHash(lifes.map(it => life.notice(it)))
+    return life.sumHash(lifes.map(it => life._notice(it)))
   },
   nextCell: (state, pop) => {
     if (pop === 3) return true
