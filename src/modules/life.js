@@ -3,8 +3,9 @@ export const life = {
   size: 0,
   sumHash: objs => {
     return objs.reduce((acm, it) => {
-      Object.keys(it).forEach(k => {
-        acm[k] = (acm[k] || 0) + 1
+      const neighbor = Object.keys(it)
+      neighbor.forEach(pos => {
+        acm[pos] = (acm[pos] || 0) + 1
       })
       return acm
     }, {})
