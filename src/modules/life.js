@@ -17,14 +17,14 @@ export const life = {
     ]
   },
   noticeAll: lifes => {
-    const _notice= ([x, y]) => {
+    const _notice= (x, y) => {
       return life.neighbor(x, y)
         .reduce((acm, it) => {
           acm[it] = 1
           return acm
       }, {})
     }
-    return life.sumHash(lifes.map(it => _notice(it)))
+    return life.sumHash(lifes.map(([x, y]) => _notice(x, y)))
   },
   nextCell: (state, pop) => {
     if (pop === 3) return true
