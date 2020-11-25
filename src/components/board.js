@@ -12,6 +12,9 @@ const Table = styled.table`
 const Cell = ({state, ...props}) =>
   <td>{state===1?'●':'・'}</td>
 
+//TODO: y 座標をもらう
+//TODO: lifes をもらう
+//TODO: x,y 座標の活性、不活性を判定する
 const Row = ({data, ...props}) =>
   <tr>
     {data.map((it, idx) =>
@@ -19,6 +22,8 @@ const Row = ({data, ...props}) =>
     )}
   </tr>
 
+//TODO: lifes をもらう
+//TODO: Row に lifes と y 座標を渡す
 const Board = ({state, size, ...props}) =>
   <div style={{width: '92vw'}}>
     <h1>コンウェイのライフゲーム</h1>

@@ -10,7 +10,8 @@ const lifeState = atom({
   key:          'lifeState',
   default:  {
     size:       3,
-    status:     engine.blinker[0]
+    status:     engine.blinker[0],
+    lifes:      [[2,1], [2,2], [2,3]]
   },
   persistence_UNSTABLE: {
     type:       'log'
@@ -43,12 +44,19 @@ const LifeGame = ({...props}) => {
     }))
   }
 
+  const handleNextBoard = event => {
+    setLife(state => ({...state,
+      lifes:         engine.nextBoard(life.lifes)
+    }))
+  }
+
   return (
     <Board
-      size          = {life.size}
-      state         = {life.status}
-      handleForward = {handleForward}
-      handleSize    = {handleSize}
+      size            = {life.size}
+      state           = {life.status}
+      handleForward   = {handleForward}
+      handleSize      = {handleSize}
+      handleNextBoard = {handleNextBoard}
     />
   )
 }
