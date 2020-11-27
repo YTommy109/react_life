@@ -1,3 +1,5 @@
+import {life} from './life'
+
 const blinker = [[
   [0, 0, 0],
   [1, 1, 1],
@@ -18,6 +20,10 @@ const engine = {
       return blinker[1]
     }
     return blinker[0]
+  },
+  nextBoard: lifes => {
+    life.size = 3
+    return life.nextLife(lifes)
   }
 }
 
