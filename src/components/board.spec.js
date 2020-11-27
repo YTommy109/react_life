@@ -3,10 +3,6 @@ import {render, fireEvent, screen } from '@testing-library/react'
 import Board from './board'
 
 describe('Board について', () => {
-  it('活性、不活性を判断できること', () => {
-    expect(true).toBe(false)
-  })
-
   describe('項目が画面にあること', () => {
     beforeEach(() => {
       render(<Board state={[]} />)
@@ -27,7 +23,11 @@ describe('Board について', () => {
 
   describe('セルの状態が表示されること', () => {
     beforeEach(() => {
-      render(<Board state={[[1, 0], [1, 1]]} />)
+      render(<Board
+        state={[[1, 0], [1, 1]]}
+        lifes={[[1,1], [2,1], [2,2]]}
+        size={2}
+      />)
     })
     it('生存数が 3 であること', () => {
       const target = screen.getAllByText('●') 
@@ -44,8 +44,8 @@ describe('Board について', () => {
     const mockNext = jest.fn()
     beforeEach(() => {
       render(<Board state={[]}
-        handleSize    = {mockSize}
-        handleForward = {mockNext}
+        handleSize      = {mockSize}
+        handleNextBoard = {mockNext}
       />)
     })
     it('次ボタンのハンドラーが呼ばれること', () => {

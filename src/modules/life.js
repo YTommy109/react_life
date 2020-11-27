@@ -36,13 +36,13 @@ export const life = {
     }, [])
   },
   getRow: (lifes=[], y=1) => {
-    const data = new Array(life.size).fill('□')
-    const xs = lifes
-    .filter(([xx,yy]) => yy===y)
-    .map(([x, y]) => x-1)
-    xs.map(it => { data[it] = '■'})
+    const data = new Array(life.size).fill(0)
+    lifes
+      .filter(([xx,yy]) => yy===y)
+      .map(([x, y]) => x-1)
+      .map(it => { data[it] = 1})
 
-    return data.join('')
+      return data
   },
   print: (lifes) => {
     let cur = lifes

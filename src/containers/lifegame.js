@@ -9,9 +9,9 @@ import engine from '../modules/engine'
 const lifeState = atom({
   key:          'lifeState',
   default:  {
-    size:       3,
+    size:       10,
     status:     engine.blinker[0],
-    lifes:      [[2,1], [2,2], [2,3]]
+    lifes:      [[2,1], [4,2], [1,3], [2,3], [5,3], [6,3], [7,3]]
   },
   persistence_UNSTABLE: {
     type:       'log'
@@ -54,6 +54,7 @@ const LifeGame = ({...props}) => {
     <Board
       size            = {life.size}
       state           = {life.status}
+      lifes           = {life.lifes}
       handleForward   = {handleForward}
       handleSize      = {handleSize}
       handleNextBoard = {handleNextBoard}

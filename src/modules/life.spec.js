@@ -52,14 +52,14 @@ describe('ライフゲームの活性判定ができること', () => {
 
 describe('出力できること', () => {
   it('初期状態で1行分が表示されること', () => {
-    const exp = '□□□'
+    const exp = [0, 0, 0]
     life.size = 3
     expect(life.getRow()).toEqual(exp)
   })
   it('指定行の1行分が取得できること', () => {
-    const lifes = [[1,1], [2,1], [3,2]]
-    const exp = '□□■'
-    life.size = 3
+    const lifes = [[1,1], [2,2]]
+    const exp = [0, 1]
+    life.size = 2
     expect(life.getRow(lifes, 2)).toEqual(exp)
   })
 })
