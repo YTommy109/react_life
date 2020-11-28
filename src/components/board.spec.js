@@ -5,7 +5,7 @@ import Board from './board'
 describe('Board について', () => {
   describe('項目が画面にあること', () => {
     beforeEach(() => {
-      render(<Board state={[]} />)
+      render(<Board />)
     })
     it('タイトルがあること', () => {
       const target = screen.getByText('コンウェイのライフゲーム') 
@@ -24,7 +24,6 @@ describe('Board について', () => {
   describe('セルの状態が表示されること', () => {
     beforeEach(() => {
       render(<Board
-        state={[[1, 0], [1, 1]]}
         lifes={[[1,1], [2,1], [2,2]]}
         size={2}
       />)
@@ -43,7 +42,7 @@ describe('Board について', () => {
     const mockSize = jest.fn()
     const mockNext = jest.fn()
     beforeEach(() => {
-      render(<Board state={[]}
+      render(<Board
         handleSize      = {mockSize}
         handleNextBoard = {mockNext}
       />)

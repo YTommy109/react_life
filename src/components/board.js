@@ -20,7 +20,7 @@ const Row = ({data, ...props}) =>
     )}
   </tr>
 
-const Board = ({state, size, lifes, ...props}) => {
+const Board = ({size, lifes, ...props}) => {
   life.size = size
   return (
     <div style={{width: '92vw'}}>
