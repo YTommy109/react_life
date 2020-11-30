@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
 import Kannon from './kannon'
+import {Button} from './l1_atoms/button'
 import {life} from '../modules/life'
 
 const Table = styled.table`
@@ -33,14 +34,13 @@ const Board = ({size, lifes, ...props}) => {
             id        = "size01"
             type      = "number"
             value     = {size}
-            onChange  = {props.handleSize}
+            onChange  = {props.handleSize || (() => {})}
           />
           <br />
-          <input
-                type    = "button"
-                value   = "次"
-                onClick = {props.handleNextBoard}
-              />
+          <Button
+            label       = "次"
+            handleClick = {props.handleNextBoard}
+          />
         </div>
         <div style={{backgroundColor: 'lightgray', padding: '1rem', borderRadius: '12px'}}>
           <Table>
