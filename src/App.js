@@ -2,7 +2,7 @@ import React from 'react'
 import { RecoilRoot } from 'recoil'
 import RecoilLogger from 'recoil-logger'
 import styled from 'styled-components'
-import LifeGame from './containers/lifegame'
+import LifeContainer from './containers/life_container'
 
 const Main = styled.div`
   display:          grid;
@@ -14,7 +14,7 @@ const App = () =>
     <Main>
       <RecoilRoot>
         <RecoilLogger />
-        <LifeGame />
+        <LifeContainer />
       </RecoilRoot>
     </Main>
   </React.StrictMode>

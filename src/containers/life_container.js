@@ -1,27 +1,26 @@
 import React from 'react';
 import {atom, useRecoilState} from 'recoil'
 import Board from '../components/board'
-import engine from '../modules/engine'
+import {LifeGame} from '../modules/lifegame'
 
 /**
  * ライフゲームのステート
  */
-const lifeState = atom({
-  key:          'lifeState',
+const lifeStore = atom({
+  key:    'lifeState',
   default:  {
-    size:       10,
-    lifes:      [[2,1], [4,2], [1,3], [2,3], [5,3], [6,3], [7,3]]
+    life: new LifeGame(10, ['2,1', '4,2', '1,3', '2,3', '5,3', '6,3', '7,3'])
   },
   persistence_UNSTABLE: {
-    type:       'log'
+    type: 'log'
   }
 })
 
 /**
  * ボードコンテナ
  */
-const LifeGame = ({...props}) => {
-  const [life, setLife] = useRecoilState(lifeState)
+const LifeContainer = ({...props}) => {
+  const [lifeState, setLife] = useRecoilState(lifeStore)
 
   /**
    * サイズ変更の処理
@@ -29,7 +28,7 @@ const LifeGame = ({...props}) => {
    */
   const handleSize = event => {
     setLife(state => ({...state,
-      size:         event.target.value
+      life:         new LifeGame(parseInt(event.target.value), lifeState.life.size)
     }))
   }
 
@@ -39,14 +38,13 @@ const LifeGame = ({...props}) => {
    */
   const handleNextBoard = event => {
     setLife(state => ({...state,
-      lifes:         engine.nextBoard(life.lifes)
+      life:           lifeState.life.nextLife()
     }))
   }
 
   return (
     <Board
-      size            = {life.size}
-      lifes           = {life.lifes}
+      life            = {lifeState.life}
       handleSize      = {handleSize}
       handleNextBoard = {handleNextBoard}
     />
@@ -54,4 +52,4 @@ const LifeGame = ({...props}) => {
 }
 
 
-export default LifeGame
+export default LifeContainer
