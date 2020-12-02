@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Div = styled.div`
+  margin:       .5rem;
+  padding:      .5rem;
+`
+
 const LifeTable = styled.table`
   border-collapse:    collapse;
   td {
@@ -25,7 +30,7 @@ const Row = ({life, y, ...props}) =>
   </tr>
 
 export const LifeBoard = ({life, ...props}) =>
-  <div>
+  <Div>
     <LifeTable>
       <tbody>
         {new Array(life.size).fill(0).map((it, idx) =>
@@ -37,4 +42,4 @@ export const LifeBoard = ({life, ...props}) =>
         )}
       </tbody>
     </LifeTable>
-  </div>
+  </Div>
