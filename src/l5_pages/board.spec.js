@@ -1,6 +1,6 @@
 import React from 'react'
 import {render, fireEvent, screen } from '@testing-library/react'
-import Board, {Button} from './board'
+import Board from './board'
 import {LifeGame} from '../modules/lifegame'
 
 describe('Board について', () => {
@@ -10,14 +10,6 @@ describe('Board について', () => {
     })
     it('タイトルがあること', () => {
       const target = screen.getByText('コンウェイのライフゲーム') 
-      expect(target).toBeInTheDocument()
-    })
-    it('次ボタンがあること', () => {
-      const target = screen.getByDisplayValue('次') 
-      expect(target).toBeInTheDocument()
-    })
-    it('サイズ入力があること', () => {
-      const target = screen.getByLabelText('サイズ') 
       expect(target).toBeInTheDocument()
     })
   })

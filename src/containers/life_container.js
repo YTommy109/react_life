@@ -1,7 +1,7 @@
 import React from 'react';
 import {atom, useRecoilState} from 'recoil'
-import Board from '../components/board'
 import {LifeGame} from '../modules/lifegame'
+import Board from '../l5_pages/board'
 
 /**
  * ライフゲームのステート

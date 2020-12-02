@@ -1,7 +1,7 @@
 import React from 'react'
 import {render, fireEvent, screen } from '@testing-library/react'
 import {LifeBoard} from './life_board'
-import {LifeGame} from '../../modules/lifegame'
+import {LifeGame} from '../modules/lifegame'
 
 describe('セルの状態が表示されること', () => {
   beforeEach(() => {
